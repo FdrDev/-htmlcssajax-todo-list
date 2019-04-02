@@ -73,24 +73,37 @@ function addCard() {
   var myData={
     text: textIn
   }
+  if(textIn!= ""){
 
-  $.ajax({
+    $.ajax({
 
-    url:"http://157.230.17.132:3023/todos/",
-    method:"POST",
-    data:myData,
-    success:function (inData){
+      url:"http://157.230.17.132:3023/todos/",
+      method:"POST",
+      data:myData,
+      success:function (inData){
 
 
 
-    },
-    error:function(){}
-  });
-  input.val("");
-  loadCard();
+      },
+      error:function(){}
+    });
+    input.val("");
+    loadCard();
+  }
 }
 
+function addCardByEnter(e){
+  if(e.keyCode!=13){
+    return
+  }
+
+  addCard();
+
+}
 function init() {
+
+  var input = $("#gen-text");
+  input.on("keyup", addCardByEnter);
 
   $(document).on("click",".cardDel",deleteCard);
   var btn = $("#gen-btn");
