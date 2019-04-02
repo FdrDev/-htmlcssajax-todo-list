@@ -82,13 +82,13 @@ function addCard() {
       data:myData,
       success:function (inData){
 
+        loadCard();
 
 
       },
       error:function(){}
     });
     input.val("");
-    loadCard();
   }
 }
 
