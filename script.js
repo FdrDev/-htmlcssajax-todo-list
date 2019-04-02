@@ -86,7 +86,7 @@ function addCard() {
     },
     error:function(){}
   });
-
+  input.val("");
   loadCard();
 }
 
